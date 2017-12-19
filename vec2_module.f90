@@ -6,23 +6,23 @@
                 real :: y
             end type vec2
         contains                        
-            function vec2_create(x, y)
-                type(vec2) :: vec2_create
+            subroutine vec2_set(obj, x, y)
+                type(vec2), intent(out) :: obj
                 real, optional, value :: x
                 real, optional, value :: y                
                 
                 if (present(x)) then
-                    vec2_create%x = x
+                    obj%x = x
                 else
-                    vec2_create%x = 0.0
+                    obj%x = 0.0
                 endif
                 
                 if (present(y)) then
-                    vec2_create%y = y
+                    obj%y = y
                 else
-                    vec2_create%y = 0.0
+                    obj%y = 0.0
                 endif
-            end function vec2_create
+            end subroutine vec2_set
 
             function vec2_add(u, v)                
                 type(vec2) :: vec2_add

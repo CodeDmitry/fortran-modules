@@ -9,37 +9,37 @@
             end type vec4
             
         contains                        
-            function vec4_create(x, y, z, w)
-                type(vec4) :: vec4_create
+            subroutine vec4_set(obj, x, y, z, w)
+                type(vec4), intent(out) :: obj
                 real, optional, value :: x
                 real, optional, value :: y                
                 real, optional, value :: z
                 real, optional, value :: w                
                 
                 if (present(x)) then               
-                    vec4_create%x = x
+                    obj%x = x
                 else
-                    vec4_create%x = 0.0
+                    obj%x = 0.0
                 endif
                 
                 if (present(y)) then               
-                    vec4_create%y = y
+                    obj%y = y
                 else
-                    vec4_create%y = 0.0
+                    obj%y = 0.0
                 endif
                 
                 if (present(z)) then               
-                    vec4_create%z = z
+                    obj%z = z
                 else
-                    vec4_create%z = 0.0
+                    obj%z = 0.0
                 endif
                 
                 if (present(w)) then               
-                    vec4_create%w = w
+                    obj%w = w
                 else
-                    vec4_create%w = 0.0
+                    obj%w = 0.0
                 endif                
-            end function vec4_create
+            end subroutine vec4_set
 
             function vec4_add(u, v)                
                 type(vec4) :: vec4_add

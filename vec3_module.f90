@@ -8,30 +8,30 @@
             end type vec3
             
         contains                        
-            function vec3_create(x, y, z)
-                type(vec3) :: vec3_create
+            subroutine vec3_set(obj, x, y, z)
+                type(vec3), intent(out) :: obj
                 real, optional, value :: x
                 real, optional, value :: y                
                 real, optional, value :: z
                 
                 if (present(x)) then               
-                    vec3_create%x = x
+                    obj%x = x
                 else
-                    vec3_create%x = 0.0
+                    obj%x = 0.0
                 endif
                 
                 if (present(y)) then               
-                    vec3_create%y = y
+                    obj%y = y
                 else
-                    vec3_create%y = 0.0
+                    obj%y = 0.0
                 endif
                 
                 if (present(z)) then               
-                    vec3_create%z = z
+                    obj%z = z
                 else
-                    vec3_create%z = 0.0
+                    obj%z = 0.0
                 endif
-            end function vec3_create
+            end subroutine vec3_set
 
             function vec3_add(u, v)                
                 type(vec3) :: vec3_add
